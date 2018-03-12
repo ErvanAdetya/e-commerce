@@ -1,0 +1,139 @@
+body {
+    background-color: whitesmoke;
+}
+
+header:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+a {
+    text-decoration: none;    
+}
+
+.imgDestination {
+    width:100%; 
+    height: 225px;;
+}
+
+.destination {
+    margin: 0;
+    padding: 5px;
+}
+
+.card {
+    background-color: whitesmoke;
+    padding: 4px;
+    box-shadow: 3px 2px 70px -23px rgba(0,0,0,0.75);    
+}
+
+.card p {
+    text-align: center;
+}
+
+.card:hover {
+    box-shadow: inset 0px 0px 66px -4px rgba(65,82,71,0.41);
+}
+
+.parallax {
+    background-image: url("https://wallpaperstudio10.com/static/wpdb/wallpapers/1920x1080/171351.jpg");
+
+    min-height: 650px; 
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallaxDetail {
+    background-image: url("https://wallpaperstudio10.com/static/wpdb/wallpapers/1920x1080/181413.jpg");
+
+    min-height: 500px; 
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.description {
+    /* background-color: ; */
+    padding: 25px;
+}
+
+.description  img{
+    width: 100%;
+    height: auto;
+}
+
+.description p {
+    text-align: center;
+}
+
+footer {
+    background-color: seashell
+}
+
+.section {
+    margin: 30px;
+    text-align: center;
+}
+
+.navi {
+    /* background-color: rgb(66, 244, 134); */
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* .navi a {
+    color: rgb(50, 50, 50);
+}
+
+.navi a:hover {
+    color: rgb(66, 244, 134);
+} */
+
+.navbar {
+  max-height: 50px;
+}
+
+.navbar-nav>li:after {
+  content: '';
+  display: block;
+  border-bottom: 5px solid transparent;
+  transition: ease .25s;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+}
+
+.navbar-nav>li:hover:after {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+  border-bottom: 5px solid rgb(66, 244, 134);
+}
+
+a h3{
+    color: rgb(66, 244, 134);
+    text-shadow: rgba(255, 255, 255, 0.4)
+}
+
+
+li a {
+    color: aquamarine
+}
+
+.greenline {
+    background-color: rgb(66, 244, 134);
+    height: 15px;
+}
+
+#footData {
+    background-color: rgb(50, 50, 50);
+}
+
+.page-footer {
+    margin: 0;
+}
+
+.cart {
+    margin-top: 100px;
+}
