@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Routes</a>
@@ -33,7 +33,7 @@
                         <a class="nav-link" href="tickets.html">Tickets</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Promotion</a>
+                        <a class="nav-link" href="#">Promotion </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -50,39 +50,64 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-user"></i> User</a>
+                        <a class="nav-link" href="#">User</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="" data-toggle="modal" data-target="#myModal">
-                            <i class="fas fa-shopping-cart"></i> Cart  <span class="badge badge-success">{{countCart}}</span></a>
+                            <i class="fas fa-shopping-cart"></i> Cart</a>
                     </li>
                 </ul>
             </div>   
         </nav>
     </header>
-
-    <!-- ===================================== Head Template ===================================== -->
-
-    <!-- <div class="parallax"></div> -->
-    <div class="greenline mt-5"></div>
     
     <div class="container">
-        <div class="row">
-            <div class="col-md-2 col-sm-4 col-xs-6 mt-4 cardBox" v-for="ticket in tickets">
-                <div class="card">
-                    <img class="img-fit"
-                        alt="image not found" v-bind:src="ticket.imageUrl">
-                    
-                    <p class="card-title mt-2" style="font-size: 12px;">{{getName(ticket.name)}}</p>
-                    <p class="text-right mb-0 text-justify">{{pricing(ticket.price)}}</p>
-                    <small class="text-right mb-0 text-justify"><small>Stock: {{ticket.stock}}</small></small>
-                    <button type="button" class="btn btn-success btn-sm" v-on:click="addToCart(ticket)" v-if="ticket.stock">Buy</button>
-                    <button type="button" class="btn btn-danger btn-sm" v-else>Sold Out</button>
-                </div>
-            </div>
+        <table class="table cart">
+            <thead>
+                <tr>
+                <th>Destination</th>
+                <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bali</td>
+                    <td>19 May 2018 - 29 May 2018</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
+                    <th>Passport</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Ervan</td>
+                    <td>Adetya</td>
+                    <td>20</td>
+                    <td>ABK2567KLN95</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Banbang</td>
+                    <td>Pamungkas</td>
+                    <td>20</td>
+                    <td>ABK2567K552LN95</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <button type="button" class="btn btn-primary">Checkout!</button>
         </div>
     </div>
-
+    
 
     <!-- ===================================== Foot Template ===================================== -->
     

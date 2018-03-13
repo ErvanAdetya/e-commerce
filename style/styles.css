@@ -62,9 +62,7 @@ a {
     background-size: cover;
 }
 
-.parallaxZ {
-    /* background-image: url("https://wallpaperstudio10.com/static/wpdb/wallpapers/1920x1080/171351.jpg"); */
-
+.parallaxBlank {
     min-height: 650px; 
 
     background-attachment: fixed;
@@ -124,7 +122,7 @@ a h3{
 
 
 li a {
-    color: aquamarine
+    color: rgb(66, 244, 134);
 }
 
 .greenline {
@@ -147,6 +145,20 @@ li a {
 .buyBtn a{
     color: rgb(66, 244, 134);
 }
+
+.footer-content {
+    color: whitesmoke;
+}
+
+.footer-content a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.footer-content h6 {
+    color: rgb(66, 244, 134);
+}
+
 
 /* button.btn.btn-success.btn-sm {
     position: absolute;
