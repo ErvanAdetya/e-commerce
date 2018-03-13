@@ -72,8 +72,10 @@
                     <img class="img-fit"
                         alt="image not found" v-bind:src="ticket.imageUrl">
                     <p class="mt-2" style="font-size: 12px;">{{getName(ticket.name)}}</p>
-                    <p class="text-right mb-0">{{pricing(ticket.price)}}</p>
-                    <button type="button" class="btn btn-success btn-sm" v-on:click="addToCart(ticket)">Buy</button>
+                    <p class="text-right mb-0 text-justify">{{pricing(ticket.price)}}</p>
+                    <small class="text-right mb-0 text-justify"><small>Stock: {{ticket.stock}}</small></small>
+                    <button type="button" class="btn btn-success btn-sm" v-on:click="addToCart(ticket)" v-if="ticket.stock">Buy</button>
+                    <button type="button" class="btn btn-danger btn-sm" v-else>Sold Out</button>
                 </div>
             </div>
         </div>
@@ -149,6 +151,7 @@
                         <th>Item Name</th>
                         <th>Qty</th>
                         <th>Total</th>
+                        <th> </th>
                     </tr>
                 </thead>
                 <tbody v-for="item in cart">
