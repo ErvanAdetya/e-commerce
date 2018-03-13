@@ -21,9 +21,11 @@ a {
 }
 
 .card {
+    /* height: 275px; */
     background-color: whitesmoke;
     padding: 4px;
-    box-shadow: 3px 2px 70px -23px rgba(0,0,0,0.75);    
+    box-shadow: 3px 2px 70px -23px rgba(0,0,0,0.75);
+    /* max-width: 340px;  */
 }
 
 .card p {
@@ -32,6 +34,10 @@ a {
 
 .card:hover {
     box-shadow: inset 0px 0px 66px -4px rgba(65,82,71,0.41);
+}
+
+.img-fit {
+    max-width: 100%;
 }
 
 .parallax {
@@ -55,6 +61,18 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.parallaxZ {
+    /* background-image: url("https://wallpaperstudio10.com/static/wpdb/wallpapers/1920x1080/171351.jpg"); */
+
+    min-height: 650px; 
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 
 .description {
     /* background-color: ; */
@@ -82,18 +100,6 @@ footer {
 .navi {
     /* background-color: rgb(66, 244, 134); */
     background-color: rgba(255, 255, 255, 0.8);
-}
-
-/* .navi a {
-    color: rgb(50, 50, 50);
-}
-
-.navi a:hover {
-    color: rgb(66, 244, 134);
-} */
-
-.navbar {
-  max-height: 50px;
 }
 
 .navbar-nav>li:after {
@@ -137,3 +143,13 @@ li a {
 .cart {
     margin-top: 100px;
 }
+
+.buyBtn a{
+    color: rgb(66, 244, 134);
+}
+
+/* button.btn.btn-success.btn-sm {
+    position: absolute;
+    bottom: 5px;
+    width: 95%;
+} */

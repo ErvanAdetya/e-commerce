@@ -5,8 +5,15 @@
     <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./style/styles.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.15/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </head>
 <body>
+<div id="catalogue">
     <header>
         <nav class="navbar navbar-expand-sm fixed-top navbar-light navi">
             <a class="navbar-brand" href="index.html"><h3>Travey</h3></a>
@@ -42,6 +49,9 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
+                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#myModal">Light</button>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#">User</a>
                     </li>
                     <li class="nav-item">
@@ -53,88 +63,22 @@
     </header>
 
     <div class="parallax"></div>
-
     <div class="greenline"></div>
-    <h3 class="section">New Routes</h3>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 destination">
-                <div class="card">
-                    <a href="detail.html">
-                        <img class="imgDestination"
-                        src="http://images.kuoni.co.uk/73/french-polynesia-30170482-1442223768-ImageGalleryLightboxLarge.jpg"
-                        alt="http://images.kuoni.co.uk/73/french-polynesia-30170482-1442223768-ImageGalleryLightboxLarge.jpg">
-                    </a>
-                    <p class="mt-2">Polynesia</p>
-                </div>
-            </div>
-
-            <div class="col-md-4 destination">
-                <div class="card">
-                    <a href="detail.html">
-                        <img class="imgDestination"
-                        src="http://triconetravel.com/wp-content/uploads/2015/03/takabonerate-atol.jpg"
-                        alt="http://images.kuoni.co.uk/73/french-polynesia-30170482-1442223768-ImageGalleryLightboxLarge.jpg">
-                    </a>
-                    <p class="mt-2">Takabonerate-atol</p>
-                </div>
-            </div>
-
-            <div class="col-md-4 destination">
-                <div class="card">
-                    <a href="detail.html">
-                        <img class="imgDestination"
-                        src="http://windmillholidays.in/wp-content/uploads/2016/12/bali-photo.jpg"
-                        alt="http://images.kuoni.co.uk/73/french-polynesia-30170482-1442223768-ImageGalleryLightboxLarge.jpg">
-                    </a>
-                    <p class="mt-2">Bali</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <h3 class="section">March Special!</h3>
-    <div class="container">
-        <div class="row">
-            
-            <div class="col-md-4 destination">
-                <div class="card">
-                    <a href="detail.html">
-                        <img class="imgDestination"
-                        src="http://triconetravel.com/wp-content/uploads/2015/03/takabonerate-atol.jpg"
-                        alt="http://images.kuoni.co.uk/73/french-polynesia-30170482-1442223768-ImageGalleryLightboxLarge.jpg">
-                    </a>
-                    <p class="mt-2">Takabonerate-atol</p>
-                </div>
-            </div>
-            
-            <div class="col-md-4 destination">
-                <div class="card">
-                    <a href="detail.html">
-                        <img class="imgDestination"
-                        src="http://images.kuoni.co.uk/73/french-polynesia-30170482-1442223768-ImageGalleryLightboxLarge.jpg"
-                        alt="http://images.kuoni.co.uk/73/french-polynesia-30170482-1442223768-ImageGalleryLightboxLarge.jpg">
-                    </a>
-                    <p class="mt-2">Polynesia</p>
-                </div>
-            </div>
-
-
-            <div class="col-md-4 destination">
-                <div class="card">
-                    <a href="detail.html">
-                        <img class="imgDestination"
-                        src="http://windmillholidays.in/wp-content/uploads/2016/12/bali-photo.jpg"
-                        alt="http://images.kuoni.co.uk/73/french-polynesia-30170482-1442223768-ImageGalleryLightboxLarge.jpg">
-                    </a>
-                    <p class="mt-2">Bali</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
     
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 col-sm-4 col-xs-6 mt-4 cardBox" v-for="ticket in tickets">
+                <div class="card">
+                    <img class="img-fit"
+                        alt="image not found" v-bind:src="ticket.imageUrl">
+                    <p class="mt-2" style="font-size: 12px;">{{getName(ticket.name)}}</p>
+                    <p class="text-right mb-0">{{pricing(ticket.price)}}</p>
+                    <button type="button" class="btn btn-success btn-sm" v-on:click="addToCart(ticket)">Buy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="mt-4">
         <div class="greenline"></div>
         <div class="page-footer font-small stylish-color-dark pt-4" id="footData" style="margin: 0px;">
@@ -188,9 +132,52 @@
             </div>
         </div>
     </footer>
-    
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <div class="modal-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Qty</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody v-for="item in cart">
+                    <tr>
+                        <td>{{item.name}}</td>
+                        <td>{{item.qty}}</td>
+                        <td>{{pricing(item.price*item.qty)}}</td>
+                        <td><button type="button" class="btn btn-outline-danger" v-on:click="deleteCartItem(item.productId)">Delete</button></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="text-right mb-0">Grand Total</th>
+                        <td>:</td>
+                        <td>{{getGrandTotal}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary mr-auto" data-dismiss="modal">< Continue Shopping</button>
+            <button type="button" class="btn btn-success" data-dismiss="modal">Checkout ></button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<script src="./javascript/tickets.js"></script>
 </body>
 </html>
