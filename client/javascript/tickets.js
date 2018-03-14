@@ -164,7 +164,11 @@ new Vue({
         axios.get('http://localhost:3000/items')
         .then((response) => {
             this.tickets = response.data.items;
-            this.cart = JSON.parse(localStorage.getItem('cart'))
+            if(localStorage.getItem('cart')) {
+                this.cart = JSON.parse(localStorage.getItem('cart'))
+            } else {
+                this.cart = [];
+            }
         })
         .catch((err) => {
             console.log(err)

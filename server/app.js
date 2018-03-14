@@ -7,13 +7,14 @@ var bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-const dbUrl = 'mongodb://localhost:27017/travey'
-
 var index = require('./routes/index');
 var users = require('./routes/users');
-const items = require('./routes/items')
+const items = require('./routes/items');
 
 var app = express();
+
+
+const dbUrl = 'mongodb://ervan:123456@ds029615.mlab.com:29615/travey';
 
 mongoose.connect(dbUrl, (err) => {
   if(!err) {console.log('Connected to Database');}
