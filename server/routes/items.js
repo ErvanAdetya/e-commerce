@@ -6,6 +6,6 @@ const {itemReadAll, itemCreate, itemUpdate, itemDelete} = require('../controller
 router.get('/', itemReadAll);
 router.post('/', itemCreate);
 router.put('/:itemId', itemUpdate);
-router.delete(':itemId', itemDelete);
+router.delete('/:itemId', itemDelete);
 
 module.exports = router;

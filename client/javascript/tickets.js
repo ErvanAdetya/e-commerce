@@ -161,7 +161,8 @@ new Vue({
     },
 
     created: function() {
-        axios.get('http://localhost:3000/items')
+        // axios.get('http://localhost:3000/items')  //Local test
+        axios.get('http://35.198.215.76/items') //Online Db
         .then((response) => {
             this.tickets = response.data.items;
             if(localStorage.getItem('cart')) {
