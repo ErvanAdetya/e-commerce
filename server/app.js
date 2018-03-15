@@ -14,8 +14,8 @@ const items = require('./routes/items');
 var app = express();
 
 
-// const dbUrl = 'mongodb://localhost:27017/travey';  //Local Test
-const dbUrl = 'mongodb://ervan:123456@ds029615.mlab.com:29615/travey'; //Online Db
+const dbUrl = 'mongodb://localhost:27017/travey';  //Local Test
+// const dbUrl = 'mongodb://ervan:123456@ds029615.mlab.com:29615/travey'; //Online Db
 
 mongoose.connect(dbUrl, (err) => {
   if(!err) {console.log('Connected to Database');}
