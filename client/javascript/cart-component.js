@@ -48,15 +48,12 @@ Vue.component('cart-comp', {
                         Checkout >
                     </button>
                 </div>
-
             </div>
         </div>
     </div>
     `,
-    props: ['cart', 'tickets'],
-    // data: function() {
+    props: ['cart', 'tickets', 'pricing'],
 
-    // },
     computed: {
         getGrandTotal: function(){
             let total = 0;
@@ -68,17 +65,17 @@ Vue.component('cart-comp', {
     },
 
     methods: {
-        pricing: function(price) {
-            this.$emit('pricing', price)
-        },
         
         deleteCartItem: function(_id) {
             for(let i in this.cart) {
                 if(this.cart[i].productId == _id) {
                     for(let j in this.tickets) {
                         if(this.tickets[j]._id == _id) {
+
                             this.tickets[j].stock += this.cart[i].qty;
                             this.cart.splice(i,1);
+
+                            // localStorage.setItem("tickets", JSON.stringify(this.tickets));
                             localStorage.setItem("cart", JSON.stringify(this.cart));
                             return
                         }

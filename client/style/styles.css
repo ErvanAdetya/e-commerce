@@ -164,9 +164,24 @@ li a {
   height: 300px;
 }
 
+.startingPage {
+    margin-top: 67px;
+}
+
+.nav-item {
+    cursor: pointer;
+}
+
 
 /* button.btn.btn-success.btn-sm {
     position: absolute;
     bottom: 5px;
     width: 95%;
+} */
+
+/* @media all and (max-width: 250px) {
+    //css yang akan mengoveride ketika max-width scree
+    .cards {
+
+    }
 } */

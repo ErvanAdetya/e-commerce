@@ -17,7 +17,7 @@
 <body>
 <div id="catalogue">
 
-    <head-comp></head-comp>
+    <head-comp :cart='cart' :admin='admin'></head-comp>
 
     <!-- ===================================== Head Template ===================================== -->
 
@@ -79,15 +79,22 @@
     <cart-comp
         :cart='cart' 
         :tickets='tickets'
-        @pricing=''>
+        :pricing='pricing'>
     </cart-comp>
-    
+
+    <login-comp></login-comp>    
+    <register-comp></register-comp>         
+    <new-item-comp></new-item-comp>
+
     <!-- ===================================== Script Template ===================================== -->
 
 </div>
 <script src="./javascript/cart-component.js"></script>
 <script src="./javascript/head-component.js"></script>
 <script src="./javascript/foot-component.js"></script>
+<script src="./javascript/register-component.js"></script>
+<script src="./javascript/new-item-component.js"></script>
+<script src="./javascript/login-component.js"></script>
 <script src="./javascript/tickets.js"></script>
 </body>
 </html>

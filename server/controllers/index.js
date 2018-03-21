@@ -26,9 +26,22 @@ module.exports = {
             }
         })
         .catch((err) => {
-            res.status(500).json({
+            return res.status(500).json({
                 message: 'Incorrect email or password!'
             })
         })
+    },
+
+    verifyAdmin: (req, res) => {
+        try {
+            let decoded = jwt.verify(req.headers.apptoken, process.env.JWT)
+            if(decoded.role == 'admin') {
+                return res.status(200).send(true)
+            } else {
+                return res.status(200).send(false)
+            }
+        } catch (error) {
+            return res.status(200).send(false)
+        }
     }
 }

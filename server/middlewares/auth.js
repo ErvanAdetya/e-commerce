@@ -16,6 +16,7 @@ module.exports = {
     },
 
     isAdmin: (req, res, next) =>  {
+        // console.log(req.headers.apptoken)
         try {
             let decoded = jwt.verify(req.headers.apptoken, process.env.JWT)
             if(decoded.role == 'admin') {

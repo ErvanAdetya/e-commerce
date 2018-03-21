@@ -17,14 +17,14 @@
 <body>
 <div id="catalogue">
 
-    <head-comp :cart='cart'></head-comp>
+    <head-comp :cart='cart' :admin='admin'></head-comp>
 
     <!-- ===================================== Head Template ===================================== -->
 
 
     <!-- <div class="parallax"></div> -->
-
-    <div class="greenline mt-5"></div>    
+    <div class="greenline startingPage"></div> 
+       
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -151,8 +151,12 @@
     <cart-comp
         :cart='cart' 
         :tickets='tickets'
-        @pricing=''>
+        :pricing='pricing'>
     </cart-comp>
+
+    <login-comp></login-comp>
+    <new-item-comp></new-item-comp>
+    <register-comp></register-comp>         
     
     <!-- ===================================== Script Template ===================================== -->
 
@@ -160,6 +164,9 @@
 <script src="./javascript/cart-component.js"></script>
 <script src="./javascript/head-component.js"></script>
 <script src="./javascript/foot-component.js"></script>
+<script src="./javascript/login-component.js"></script>
+<script src="./javascript/new-item-component.js"></script>
+<script src="./javascript/register-component.js"></script>
 <script src="./javascript/tickets.js"></script>
 </body>
 </html>

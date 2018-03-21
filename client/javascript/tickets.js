@@ -2,7 +2,8 @@ new Vue({
     el: '#catalogue',
     data: {
         tickets: [],
-        cart: []
+        cart: [],
+        admin: null,
     },
     
     computed: {
@@ -66,6 +67,7 @@ new Vue({
             if(localStorage.getItem('tickets')) {
                 this.tickets = JSON.parse(localStorage.getItem('tickets'));
             } else {
+                console.log(response)
                 this.tickets = response.data.items;
                 localStorage.setItem("tickets", JSON.stringify(this.tickets));
             }
@@ -78,6 +80,11 @@ new Vue({
         })
         .catch((err) => {
             console.log(err)
+        });
+
+        axios.get('http://localhost:3000/verifyAdmin/', {headers: {apptoken: localStorage.getItem('apptoken')}})
+        .then(({data}) => {
+            this.admin = data;
         })
     }
 })

@@ -15,30 +15,40 @@ Vue.component('head-comp', {
                         <a class="nav-link" href="tickets.html">Tickets</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Routes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Promotion</a>
+                        <a class="nav-link">Routes</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Category
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Asia</a>
-                            <a class="dropdown-item" href="#">America</a> 
-                            <a class="dropdown-item" href="#">Australia</a>
-                            <!-- <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a> -->
+                            <a class="dropdown-item" href="tickets.html">Tickets</a>
+                            <a class="dropdown-item" href="tickets.html">Trips</a>                            
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="tickets.html">Asia</a>
+                            <a class="dropdown-item" href="tickets.html">America</a> 
+                            <a class="dropdown-item" href="tickets.html">Australia</a>
                         </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="modal" data-target="#newItemModal" v-if="admin">
+                            Add Item                       
+                        </a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-user"></i> User</a>
+                        <a class="nav-link" data-toggle="modal" data-target="#loginModal">
+                            <i class="fas fa-user"></i> User                       
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" data-toggle="modal" data-target="#myModal">
+                        <a class="nav-link" @click='logout'>
+                        <i class="fas fa-sign-out-alt"></i> Logout                       
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="modal" data-target="#myModal">
                             <i class="fas fa-shopping-cart"></i> Cart  <span class="badge badge-success">{{countCart}}</span>
                         </a>
                     </li>
@@ -47,7 +57,7 @@ Vue.component('head-comp', {
         </nav>
     </header>
     `,
-    props: ['cart'],
+    props: ['cart', 'admin'],
     computed: {
         countCart: function() {
             // console.log()
@@ -58,5 +68,11 @@ Vue.component('head-comp', {
             }
             return total
         },
+    },
+    methods: {
+        logout: function() {
+            localStorage.removeItem('apptoken');
+            window.location.href='index.html';            
+        }
     }
 })

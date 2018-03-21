@@ -4,7 +4,6 @@ const User = require('../models/User');
 
 module.exports = {
     userCreate: (req, res) => {
-        console.log(req.body)
         let newUser = new User ({
             first_name: req.body.first_name,
             last_name: req.body.last_name,
