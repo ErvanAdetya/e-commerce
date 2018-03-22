@@ -3,7 +3,7 @@ new Vue({
     data: {
         tickets: [],
         cart: [],
-        admin: null,
+        role: null,
     },
     
     computed: {
@@ -56,6 +56,16 @@ new Vue({
                     return this.stock
                 }
             }
+        },
+
+        setTickets: function(updatedTickets) {
+            this.tickets = updatedTickets;
+            localStorage.setItem('tickets', JSON.stringify(this.tickets))
+        },
+
+        setCart: function(updatedCart) {
+            this.cart = updatedCart;
+            localStorage.setItem('cart', JSON.stringify(this.cart))
         }
     },
 
@@ -84,7 +94,7 @@ new Vue({
 
         axios.get('http://localhost:3000/verifyAdmin/', {headers: {apptoken: localStorage.getItem('apptoken')}})
         .then(({data}) => {
-            this.admin = data;
+            this.role = data;
         })
     }
 })

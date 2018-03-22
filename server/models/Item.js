@@ -7,5 +7,9 @@ module.exports = mongoose.model('Item', schema({
     name: String,
     imageUrl: String,
     price: Number,
-    stock: Number
+    stock: Number,
+    category: {
+        type: schema.Types.ObjectId,
+        ref: 'Category'
+    },
 }))

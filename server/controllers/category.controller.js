@@ -1,34 +1,31 @@
 'use strict'
 
-const Item = require('../models/Item');
+const Category = require('../models/Category');
 
 module.exports = {
-    itemCreate: (req, res) => {     
-        let newItem = new Item({
-            name: req.body.name || "Name",
-            imageUrl: req.file.cloudStoragePublicUrl,
-            price: req.body.price || 25,
-            stock: req.body.stock || 0
+    categoryCreate: (req, res) => {     
+        let newCategory = new Category({
+            name: req.body.name || "Name"
         })
-        newItem
+        newCategory
         .save()
         .then((response) => {
             return res.status(201).json({
                 success: true,
-                message: "New item created!",
+                message: "New category created!",
                 response
             })
         })
 
     },
 
-    itemReadAll: (req, res) => {
-        Item
+    categoryReadAll: (req, res) => {
+        Category
         .find()
         .exec()
-        .then((items) => {
+        .then((categories) => {
             return res.status(200).json({
-                items
+                categories
             })
         })
         .catch((err) => {
@@ -38,24 +35,21 @@ module.exports = {
         })
     },
 
-    itemUpdate: (req, res) => {
-        Item
-        .findById(req.params.itemId)
-            .then((item) => {
+    categoryUpdate: (req, res) => {
+        Category
+        .findById(req.params.categoryId)
+            .then((category) => {
                 let updateValue = {
-                    name: req.body.name || item.name,
-                    imageUrl: req.body.imageUrl || item.imageUrl,
-                    price: req.body.price || item.price,
-                    stock: req.body.stock || item.stock
+                    name: req.body.name || category.name
                 }
-                Item
+                Category
                 .update(
-                    { _id: item._id},
+                    { _id: category._id},
                     {$set: updateValue}
                 )
                 .then((response) => {
                     return res.status(200).json({
-                        message: "Item data updated!",
+                        message: "Category data updated!",
                         response
                     })
                 })
@@ -69,12 +63,12 @@ module.exports = {
             })
     },
 
-    itemDelete: (req, res) => {
-        Item
-        .remove({_id: req.params.itemId})
+    categoryDelete: (req, res) => {
+        Category
+        .remove({_id: req.params.categoryId})
         .then((response) => {
             return res.status(200).json({
-                message: "Item successfully deleted",
+                message: "Category successfully deleted",
                 response
             })
         })

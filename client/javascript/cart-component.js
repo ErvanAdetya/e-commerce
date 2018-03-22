@@ -53,7 +53,11 @@ Vue.component('cart-comp', {
     </div>
     `,
     props: ['cart', 'tickets', 'pricing'],
+    data () {
+        return {
 
+        }
+    },
     computed: {
         getGrandTotal: function(){
             let total = 0;
@@ -65,23 +69,29 @@ Vue.component('cart-comp', {
     },
 
     methods: {
-        
         deleteCartItem: function(_id) {
             for(let i in this.cart) {
                 if(this.cart[i].productId == _id) {
                     for(let j in this.tickets) {
                         if(this.tickets[j]._id == _id) {
-
-                            this.tickets[j].stock += this.cart[i].qty;
-                            this.cart.splice(i,1);
-
-                            // localStorage.setItem("tickets", JSON.stringify(this.tickets));
-                            localStorage.setItem("cart", JSON.stringify(this.cart));
+                            let tempCart = this.cart.slice()
+                            let tempTickets = this.tickets.slice()
+                            tempTickets[j].stock += tempCart[i].qty;
+                            tempCart.splice(i,1)
+                            this.$emit('updatecart', tempCart)
+                            this.$emit('updatetickets', tempTickets)
                             return
                         }
                     }
                 }
             }
+        },
+
+        checkout: function() {
+            let tickets = localStorage.getItem('tickets');
+            let cart = localStorage.getItem('cart');
+
+            localStorage.removeItem
         }
     }
 })

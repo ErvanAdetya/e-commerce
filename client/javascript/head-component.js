@@ -31,20 +31,20 @@ Vue.component('head-comp', {
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#newItemModal" v-if="admin">
+                        <a class="nav-link" data-toggle="modal" data-target="#newItemModal" v-if="role == 'admin'">
                             Add Item                       
                         </a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#loginModal">
-                            <i class="fas fa-user"></i> User                       
-                        </a>
-                    </li>
-                    <li class="nav-item">
+                    <li class="nav-item" v-if="role">
                         <a class="nav-link" @click='logout'>
                         <i class="fas fa-sign-out-alt"></i> Logout                       
+                        </a>
+                    </li>
+                    <li class="nav-item" v-else>
+                        <a class="nav-link" data-toggle="modal" data-target="#loginModal">
+                            <i class="fas fa-user"></i> User                       
                         </a>
                     </li>
                     <li class="nav-item">
@@ -57,7 +57,7 @@ Vue.component('head-comp', {
         </nav>
     </header>
     `,
-    props: ['cart', 'admin'],
+    props: ['cart', 'role'],
     computed: {
         countCart: function() {
             // console.log()

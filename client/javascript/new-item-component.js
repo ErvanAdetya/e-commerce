@@ -51,7 +51,7 @@ Vue.component('new-item-comp', {
                             :
                         </div>
                         <div class="col-md-8">
-                            <input type="file" class="form-control-file" id="image-input">
+                            <input type="file" class="form-control-file" id="image-input" @change="takeFile">
                         </div>
                     </div>
                 </div>
@@ -69,26 +69,43 @@ Vue.component('new-item-comp', {
             name: '',
             price: '',
             stock: '',
-            imageUrl:"https://cf.shopee.co.id/file/7afdd3c0ab799b1c69a66c9ad9df3d62"
+            imageUrl:"https://cf.shopee.co.id/file/7afdd3c0ab799b1c69a66c9ad9df3d62",
+            formData: new FormData(),
+            file: null,
         }
     },
     computed: {
     },
 
     methods: {
+        takeFile (event) {
+            this.file = event.target.files[0];
+        },
         addItem: function() {
-            axios.post('http://localhost:3000/items', {
-                name: this.name,
-                price: this.price,
-                stock: this.stock,
-                imageUrl: this.imageUrl,
-            }, {
+            this.formData.append('avatar',this.file)
+            this.formData.append('name', this.name)
+            this.formData.append('price', this.price)
+            this.formData.append('stock', this.stock)
+            axios.post('http://localhost:3000/items', this.formData, {
                 headers: {apptoken: localStorage.getItem('apptoken')}
             })
             // axios.post('http://35.198.215.76/items') //Online Db
             .then(({data}) => {
                 console.log(data)
             })
+
+            // axios.post('http://localhost:3000/items', {
+            //     name: this.name,
+            //     price: this.price,
+            //     stock: this.stock,
+            //     imageUrl: this.imageUrl,
+            // }, {
+            //     headers: {apptoken: localStorage.getItem('apptoken')}
+            // })
+            // // axios.post('http://35.198.215.76/items') //Online Db
+            // .then(({data}) => {
+            //     console.log(data)
+            // })
         }
     }
 })

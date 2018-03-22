@@ -17,7 +17,7 @@
 <body>
 <div id="catalogue">
 
-    <head-comp :cart='cart' :admin='admin'></head-comp>
+    <head-comp :cart='cart' :role='role'></head-comp>
 
     <!-- ===================================== Head Template ===================================== -->
 
@@ -79,7 +79,9 @@
     <cart-comp
         :cart='cart' 
         :tickets='tickets'
-        :pricing='pricing'>
+        :pricing='pricing'
+        @updatetickets='setTickets'
+        @updatecart='setCart'>
     </cart-comp>
 
     <login-comp></login-comp>    
