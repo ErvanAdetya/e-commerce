@@ -69,7 +69,6 @@ Vue.component('new-item-comp', {
             name: '',
             price: '',
             stock: '',
-            imageUrl:"https://cf.shopee.co.id/file/7afdd3c0ab799b1c69a66c9ad9df3d62",
             formData: new FormData(),
             file: null,
         }

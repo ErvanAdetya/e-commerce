@@ -44,7 +44,7 @@ Vue.component('head-comp', {
                     </li>
                     <li class="nav-item" v-else>
                         <a class="nav-link" data-toggle="modal" data-target="#loginModal">
-                            <i class="fas fa-user"></i> User                       
+                            <i class="fas fa-user"></i> Login                       
                         </a>
                     </li>
                     <li class="nav-item">

@@ -44,7 +44,7 @@ Vue.component('cart-comp', {
                     <button type="button" class="btn btn-primary mr-auto" data-dismiss="modal">
                         < Continue Shopping
                     </button>
-                    <button type="button" class="btn btn-success" onclick="location.href='checkout.html'">
+                    <button type="button" class="btn btn-success" @click="checkout">
                         Checkout >
                     </button>
                 </div>
@@ -88,10 +88,10 @@ Vue.component('cart-comp', {
         },
 
         checkout: function() {
-            let tickets = localStorage.getItem('tickets');
-            let cart = localStorage.getItem('cart');
-
-            localStorage.removeItem
+            let tickets = JSON.parse(localStorage.getItem('tickets'));
+            let cart = JSON.parse(localStorage.getItem('cart'));
+            localStorage.removeItem('cart')
+            window.location.href='tickets.html';   
         }
     }
 })
