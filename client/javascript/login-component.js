@@ -56,7 +56,7 @@ Vue.component('login-comp', {
 
     methods: {
         login: function() {
-            axios.post('http://localhost:3000/', {
+            axios.post('http://35.198.215.76/', {
                 email: this.email,
                 password: this.password
             })

@@ -70,7 +70,7 @@ new Vue({
     },
 
     created: function() {
-        axios.get('http://localhost:3000/items')  //Local test
+        axios.get('http://35.198.215.76/items')  //Local test
         // axios.get('http://35.198.215.76/items') //Online Db
         .then((response) => {
 
@@ -92,7 +92,7 @@ new Vue({
             console.log(err)
         });
 
-        axios.get('http://localhost:3000/verifyAdmin/', {headers: {apptoken: localStorage.getItem('apptoken')}})
+        axios.get('http://35.198.215.76/verifyAdmin/', {headers: {apptoken: localStorage.getItem('apptoken')}})
         .then(({data}) => {
             this.role = data;
         })

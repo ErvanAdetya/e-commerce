@@ -85,26 +85,13 @@ Vue.component('new-item-comp', {
             this.formData.append('name', this.name)
             this.formData.append('price', this.price)
             this.formData.append('stock', this.stock)
-            axios.post('http://localhost:3000/items', this.formData, {
+            axios.post('http://35.198.215.76/items', this.formData, {
                 headers: {apptoken: localStorage.getItem('apptoken')}
             })
             // axios.post('http://35.198.215.76/items') //Online Db
             .then(({data}) => {
                 console.log(data)
             })
-
-            // axios.post('http://localhost:3000/items', {
-            //     name: this.name,
-            //     price: this.price,
-            //     stock: this.stock,
-            //     imageUrl: this.imageUrl,
-            // }, {
-            //     headers: {apptoken: localStorage.getItem('apptoken')}
-            // })
-            // // axios.post('http://35.198.215.76/items') //Online Db
-            // .then(({data}) => {
-            //     console.log(data)
-            // })
         }
     }
 })
